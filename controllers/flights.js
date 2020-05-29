@@ -21,7 +21,7 @@ function create(req, res) {
     const flight = new Flight(req.body);
     flight.save(err => {
         if (err) {
-            Flight.collection.drop();
+            Flight.deleteMany({});
             return res.render('flights/new');
         }
         console.log(flight);
